@@ -1,0 +1,13 @@
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix ex: <http://example.org/> .
+@prefix gerbil: <http://w3id.org/gerbil/vocab#> .
+@prefix hobbit: <http://w3id.org/hobbit/vocab#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+
+<http://project-hobbit.eu/system/juliabenchmark> a hobbit:SystemInstance;
+    rdfs:label "Julia System"@en;
+	rdfs:comment "Example julia system for SDK Example Benchmark"@en;
+	hobbit:implementsAPI <http://project-hobbit.eu/juliabenchmark/API;
+	hobbit:imageName "git.project-hobbit.eu:4567/xhulja_shahini/juliabenchmark/system-adapter".
