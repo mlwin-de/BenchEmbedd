@@ -29,7 +29,15 @@ After setting up the environment, I implemented the Knowledge Graph models that 
 
  - #### Using Hobbit with KG models 
 
-First step is to have the implementations of Both Benchmark Components and the Benchmarked System components. These components should be uploaded in the platform as Docker images. To do this the following steps should be completed: 
+
+This Benchmark is created based on HOBBIT, to learn how to deploy an instance of the Hobbit platform first check here : https://hobbit-project.github.io/quick_guide.html
+and this video: https://www.youtube.com/watch?v=ktAtwU55M6s
+
+
+Next step is to have the implementations of Both Benchmark Components and the Hobbit platform components. 
+
+
+These components should be uploaded in the platform as Docker images. To do this the following steps should be completed: 
 
 install-deps: 
 
