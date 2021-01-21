@@ -9,18 +9,23 @@ The HOBBIT platform is a distributed FAIR benchmarking platform designed for the
 
 ### Application of ML methods on Kg using hobbit 
 - #### Installation & Development 
-In order to create Benchmarks, I had to first set up the whole environment for working with Hobbit. This requires the installation of all necessary tools that Hobbit requires: 
+Following libraries need to be installed:
 * Java 1.8 
 * Apache Maven 3.0.5 
 * Node.js v6.9.1 
 * Npm 4.0.2
 * Docker 17.12.1-ce
 * Docker Compose 1.17.0 
+(more recent versions of the libraries are not tested but might work as well)
 
-After setting up the environment, I implemented the Knowledge Graph models that I had to test using Hobbit. These models were TransE and DistMult. First, I implemented them in Python then I implemented a Benchmarked System that uses their predict methods to perform the testing. Later, I also implemented their prediction methods in Java. The method reads the trained parameters from the previously mentioned models and does the prediction for the test data that it receives from the Task Generator. The Benchmark Controller, the Data Generator, the Task Generator, the Evaluation Storage and the Evaluation Module are implemented in Java. Some other classes necessary for the completeness of the experiment have been implemented. After having both implemented Benchmark files and System files their respective meta-data files should be created, Benchmark.ttl and System.ttl. These files contain the needed information by the Hobbit platform and they are written as RDF triples in the Turtle format. 
+This repository is based on: https://github.com/hobbit-project/java-sdk-example
+For installing instructions please refer first to the java-sdk-example repo and then return here.
+
+This repository features java implementations of TransE and DistMult. 
+The Benchmark reads the trained parameters from the previously mentioned models and does the prediction for the test data that it receives from the Task Generator. The Benchmark Controller, the Data Generator, the Task Generator, the Evaluation Storage and the Evaluation Module are implemented in Java. Some other classes necessary for the completeness of the experiment have been implemented. After having both implemented Benchmark files and System files, their respective meta-data files should be created, Benchmark.ttl and System.ttl. These files contain the needed information by the Hobbit platform and they are written as RDF triples in the Turtle format. 
 
  - #### Metrics
- For this experiment the metrics I have used are:  
+ For this experiment the metrics used are:  
 * Hit@1  
 * Hit@3  
 * Hit@10  
