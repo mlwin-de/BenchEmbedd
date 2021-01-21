@@ -12,7 +12,6 @@ import org.hobbit.sdk.docker.builders.DynamicDockerFileBuilder;
 
 public class ExampleDockersBuilder extends DynamicDockerFileBuilder {
 
-
     public ExampleDockersBuilder(Class runnerClass, String imageName) throws Exception {
         super("ExampleDockersBuilder");
         imageName(imageName);

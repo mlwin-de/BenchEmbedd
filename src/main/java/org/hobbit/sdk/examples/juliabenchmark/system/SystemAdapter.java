@@ -55,8 +55,8 @@ public class SystemAdapter extends AbstractSystemAdapter {
     	int head = Integer.parseInt(triple[0]);
     	int tail = Integer.parseInt(triple[1]);
     	int rel = Integer.parseInt(triple[2]);
-    	
-    	String result = transe.test_triple(head, tail, rel);
+
+        String result = transe.test_triple(head, tail, rel);
         
 
         // Send the result to the evaluation storage

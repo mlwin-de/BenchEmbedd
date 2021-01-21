@@ -15,9 +15,9 @@ test-dockerized-benchmark:
 
 
 push-images:
-	docker push git.project-hobbit.eu:4567/xhulja_shahini/juliabenchmark/benchmark-controller:latest
-	docker push git.project-hobbit.eu:4567/xhulja_shahini/juliabenchmark/datagen:latest
-	docker push git.project-hobbit.eu:4567/xhulja_shahini/juliabenchmark/taskgen:latest
-	docker push git.project-hobbit.eu:4567/xhulja_shahini/juliabenchmark/eval-storage:latest
-	docker push git.project-hobbit.eu:4567/xhulja_shahini/juliabenchmark/system-adapter:latest
-	docker push git.project-hobbit.eu:4567/xhulja_shahini/juliabenchmark/eval-module:latest
+	docker push git.project-hobbit.eu:4567/schmitz.kessenich/martin_benchmark/benchmark-controller:latest
+	docker push git.project-hobbit.eu:4567/schmitz.kessenich/martin_benchmark/datagen:latest
+	docker push git.project-hobbit.eu:4567/schmitz.kessenich/martin_benchmark/taskgen:latest
+	docker push git.project-hobbit.eu:4567/schmitz.kessenich/martin_benchmark/eval-storage:latest
+	docker push git.project-hobbit.eu:4567/schmitz.kessenich/martin_benchmark/system-adapter:latest
+	docker push git.project-hobbit.eu:4567/schmitz.kessenich/martin_benchmark/eval-module:latest

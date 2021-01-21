@@ -6,12 +6,8 @@ import org.slf4j.LoggerFactory;
 import org.apache.commons.lang3.tuple.ImmutableTriple;
 import org.apache.commons.lang3.tuple.Triple;
 import static org.hobbit.sdk.examples.juliabenchmark.Constants.BENCHMARK_URI;
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileReader;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
+
+import java.io.*;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -38,13 +34,14 @@ public class DataGenerator extends AbstractDataGenerator {
         super.init();
         logger.debug("Init()");
         // Your initialization code comes here...
-        fileName = "entity2id.txt";	  
+        fileName = "entity2id.txt";
         fileName2 = "test.txt";
         fileName3 = "relation2id.txt";
-        InputStream entity2Id = getClass().getResourceAsStream(fileName);       
-        InputStream test = getClass().getResourceAsStream(fileName2); 
-        InputStream realtion2Id = getClass().getResourceAsStream(fileName3); 
-	    reader = new BufferedReader(new InputStreamReader(entity2Id));	         
+
+        InputStream entity2Id = getClass().getClassLoader().getResourceAsStream(fileName);
+        InputStream test = getClass().getClassLoader().getResourceAsStream(fileName2);
+        InputStream realtion2Id = getClass().getClassLoader().getResourceAsStream(fileName3);
+	    reader = new BufferedReader(new InputStreamReader(entity2Id));
 	    reader2 = new BufferedReader(new InputStreamReader(test));	    	    
 	    reader3 = new BufferedReader(new InputStreamReader(realtion2Id));
 

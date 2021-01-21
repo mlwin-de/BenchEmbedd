@@ -1,17 +1,16 @@
 package org.hobbit.sdk.examples.juliabenchmark.system;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
+import java.io.*;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.Map.Entry;
+import java.util.Scanner;
 import java.util.stream.Collectors;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import sun.jvm.hotspot.memory.SystemDictionary;
 
 public class TransETest {
     private static final Logger logger = LoggerFactory.getLogger(TransETest.class);
@@ -24,7 +23,7 @@ public class TransETest {
 
     public int relation_num, entity_num;   
     Double[][] relation_vec, entity_vec;
-    int n = 100;
+    int n = 50;
     
 	public TransETest() throws IOException {
 		this.relation2id = new HashMap<String, Integer>();
@@ -38,14 +37,15 @@ public class TransETest {
 	}
 	
 	public void prepare() throws IOException {
-		String fileName = "entity2id.txt";	 
+		String fileName = "entity2id.txt";
         String fileName3 = "relation2id.txt";
         String fileName5 = "relation2vec.txt";
         String fileName6 = "entity2vec.txt";
-        InputStream entity2Id = getClass().getResourceAsStream(fileName);
-        InputStream realtion2Id = getClass().getResourceAsStream(fileName3); 
-        InputStream r2v = getClass().getResourceAsStream(fileName5); 
-        InputStream e2v = getClass().getResourceAsStream(fileName6); 
+
+        InputStream entity2Id = getClass().getClassLoader().getResourceAsStream(fileName);
+        InputStream realtion2Id = getClass().getClassLoader().getResourceAsStream(fileName3);
+        InputStream r2v = getClass().getClassLoader().getResourceAsStream(fileName5);
+        InputStream e2v = getClass().getClassLoader().getResourceAsStream(fileName6);
         BufferedReader reader = new BufferedReader(new InputStreamReader(entity2Id));
         BufferedReader reader3 = new BufferedReader(new InputStreamReader(realtion2Id));
         BufferedReader reader5 = new BufferedReader(new InputStreamReader(r2v));
@@ -84,11 +84,9 @@ public class TransETest {
         i = 0;
         while ((line = reader6.readLine()) != null)
 	    {
-	    	String[] parts = line.split("\t");      
-	    	
+	    	String[] parts = line.split("\t");
 	    	entity_vec[i] = new Double[n];
 	    	for(int ii = 0; ii < n; ii++) {
-	    		
 	    		entity_vec[i][ii] = Double.parseDouble(parts[ii]);
 	    	}
 	    	i++;
