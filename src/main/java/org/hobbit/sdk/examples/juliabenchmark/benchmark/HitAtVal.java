@@ -21,9 +21,7 @@ public class HitAtVal {
     public double getAccuracyHead(int nrData) {
     	return (double)hitForHeaD/nrData;
     }
-    public double getAccuracyTail(int nrData) {
-    	return (double)hitForTail/nrData;
-    }
+    public double getAccuracyTail(int nrData) { return (double)hitForTail/nrData; }
 	public int getHitForHeaD() {
 		return hitForHeaD;
 	}
