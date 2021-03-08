@@ -75,18 +75,17 @@ change the path in line 12. Replace 'schmitz.kessenich' through your user name a
 Change the variable GIT_SYSTEM_USERNAME to your username on HOBBIT gitlab and the variable SYSTEM_NAME to the name of your GitLab System repository.
 
 #### Debug your System locally
-   *note actually checks benchmark and system, need to edit the code here for more specific testing.
+   Run checkHealth() to test your system. Note that the code in SystemAdapter.java decides which system will be used.
    
       $ mvn -Dtest=BenchmarkTest#checkHealth test 
 
 #### Benchmark the System online
+
 To upload the System as a docker image you need to create the docker image, test it locally and push it to the repository using the following commands:
 
-*note need to change the code s.t. there is a system-test and system-build-image method to only check and build the system not the whole benchmark.
+build docker system image: 
 
-build docker images: 
-
-    $ mvn -Dtest=BenchmarkTest#buildImages surefire:test 
+    $  mvn -Dtest=BenchmarkTest#buildSystemImage surefire:test
 
 test-dockerized-system: 
 
@@ -94,9 +93,8 @@ test-dockerized-system:
     
 push-image:
 
-```sh
-$ docker push git.project-hobbit.eu:4567/schmitz.kessenich/sample-system/system-adapter:latest 
-```
+    $ docker push git.project-hobbit.eu:4567/schmitz.kessenich/sample-system/system-adapter:latest 
+    
 Again, replace 'schmitz.kessenich' through your user name and 'sample-system' through your repository name.
 
 Afterwards, push the meta-data file system.ttl to your HOBBIT GitLab repository.
