@@ -45,7 +45,7 @@ You dont need a running Hobbit instance to run this code!
 The provided Benchmark is a link prediction benchmark that you can run locally from pure java code, locally using docker containers and eventually online using the HOBBIT plattform. The benchmarks consist of a benchmark controller, a data generator, a task generator, an evaluation storage and an evaluation module. All those program parts can be encapsulated in distinct docker images. You can test them locally from pure code or as docker images. Additionally, the benchmark components are also uploaded on the HOBBIT server, s.t. you can use them for fair online benchmarking of the available link prediction systems.
 
 The benchmark computes the following Metrics on WN18rr: 
-- #### Metrics
+#### Metrics
 * Hit@1  
 * Hit@3  
 * Hit@10  
@@ -53,17 +53,36 @@ The benchmark computes the following Metrics on WN18rr:
 
 
 ## Develop your own System
-- #### Modify the meta-data file system.ttl
-- #### Modify the Constants file
-- #### Write your system
-- #### Debug your System locally
 
-- #### Benchmark the System online
 In order to benchmark your system online, you need to create a Hobbit GitLab account and push your system as a docker image and a meta data file to a repository.
 
-To be able to upload a system in the HOBBIT platform it is necessary to register on [HOBBIT GitLab](git.project-hobbit.eu). You need to upload your System as a docker image and a meta-data file to the repository. To upload the System as a docker image you need to create the docker image, test it locally and push it to the repository using the following commands:
+To be able to upload a system in the HOBBIT platform it is necessary to register on [HOBBIT GitLab](git.project-hobbit.eu). You need to upload your System as a docker image and a meta-data file to the repository. 
 
-*note need to change the code s.t. there is a system-test and system-build-image method to only check and build the system not the whole benchmark. I also need to check if pushing the system to another repo really works.
+#### Write your system
+The file TransEtest.java provides an example of how a system should look like. You can copy this file and change the method 'test_triple' to implement another link prediction system.
+
+#### Modify the meta-data file system.ttl
+Replace in line 8 'sample-system' through your system repository name.
+      
+    <http://project-hobbit.eu/sample-system/system>	a	hobbit:SystemInstance;
+      
+change the path in line 12. Replace 'schmitz.kessenich' through your user name and 'sample-system' through your repository name.
+
+	hobbit:imageName "git.project-hobbit.eu:4567/schmitz.kessenich/sample-system/system-adapter" .
+     
+#### Modify the Constants file
+
+Change the variable GIT_SYSTEM_USERNAME to your username on HOBBIT gitlab and the variable SYSTEM_NAME to the name of your GitLab System repository.
+
+#### Debug your System locally
+   *note actually checks benchmark and system, need to edit the code here for more specific testing.
+   
+      $ mvn -Dtest=BenchmarkTest#checkHealth test 
+
+#### Benchmark the System online
+To upload the System as a docker image you need to create the docker image, test it locally and push it to the repository using the following commands:
+
+*note need to change the code s.t. there is a system-test and system-build-image method to only check and build the system not the whole benchmark.
 
 build docker images: 
 
@@ -76,28 +95,18 @@ test-dockerized-system:
 push-image:
 
 ```sh
-$ docker push git.project-hobbit.eu:4567/username/benchmark_name/system-adapter:latest 
+$ docker push git.project-hobbit.eu:4567/schmitz.kessenich/sample-system/system-adapter:latest 
 ```
-*username – your username for the GitLab [6]*
-*system_name – the name of your system that will appear in the Hobbit Platform*
+Again, replace 'schmitz.kessenich' through your user name and 'sample-system' through your repository name.
 
 Afterwards, push the meta-data file system.ttl to your HOBBIT GitLab repository.
-Login to [HOBBIT](https://master.project-hobbit.eu/) using your GirLab ceredentials and click 'Benchmarks' on the upper bar.
+Login to [HOBBIT](https://master.project-hobbit.eu/) using your GitLab ceredentials and click 'Benchmarks' on the upper bar.
 Then select 'BenchEmbed' from the list of possible Benchmarks. If your system was loaded up successfully the system will appear on the list of possible Systems of the BenchEmbed benchmark. (If you can't find your system there, there is most likely an error inside the System.ttl meta data file.)
 Choose your system and press the 'submit button'. Now you can click the link from the popup-window to get to the Experiment-details page to see the result once it is done. The status of the experiment can be seen by selecting *Experiment* Status under the *Experiments* button. When the Experiment is done, the results can be seen by going directly to the URL that the platform provided or by selecting *Experiment* Results under the *Experiments* button, which will show a list of all ran experiments. 
 
 The result of an experiment is a KPI table which shows the parameters of the model and the accuracy metrics. The logs of the experiment are available in JSON, CSV and TXT format. 
 
 [//]: # (These are reference links used in the body of this note and get stripped out when the markdown processor does its job. There is no need to format nicely because it shouldn't be seen. Thanks SO - http://stackoverflow.com/questions/4823468/store-comments-in-markdown-syntax)
-
-
-   [1]: <https://project-hobbit.eu/>
-   [2]: <https://hobbit-project.github.io/index.html>
-   [3]: <https://project-hobbit.eu/wp-content/uploads/2017/04/D2.2.1.pdf>
-   [4]: <https://docs.riak.com/riak/latest/>
-   [5]: <https://project-hobbit.eu/wpcontent/uploads/2018/03/D2.2.2_Second_Version_of_the_HOBBIT_Platform.pdft>
-   [6]: <git.project-hobbit.eu>
-   
  
  ![alt text][logo]
 
