@@ -37,8 +37,8 @@ public class TransETest {
 	}
 	
 	public void prepare() throws IOException {
-		String fileName = "entity2id.txt";
-        String fileName3 = "relation2id.txt";
+		String fileName = "entities.dict";
+        String fileName3 = "relations.dict";
         String fileName5 = "relation2vec.txt";
         String fileName6 = "entity2vec.txt";
 
@@ -54,16 +54,16 @@ public class TransETest {
         while ((line = reader.readLine()) != null)
 	    {
 	    	String[] parts = line.split("\t");
-	    	entity2id.put(parts[0], Integer.parseInt(parts[1]));
-	    	id2entity.put(Integer.parseInt(parts[1]), parts[0]);
+	    	entity2id.put(parts[1], Integer.parseInt(parts[0]));
+	    	id2entity.put(Integer.parseInt(parts[0]), parts[1]);
 	    	entity_num++;
 	    }
         reader.close();
         while ((line = reader3.readLine()) != null)
 	    {
 	    	String[] parts = line.split("\t");
-	    	relation2id.put(parts[0], Integer.parseInt(parts[1]));
-	    	id2relation.put(Integer.parseInt(parts[1]), parts[0]);
+	    	relation2id.put(parts[1], Integer.parseInt(parts[0]));
+	    	id2relation.put(Integer.parseInt(parts[0]), parts[1]);
 	    	relation_num++;
 	    }
         reader3.close();
@@ -124,5 +124,4 @@ public class TransETest {
 		}
 		return sum;
 	}
-
 }

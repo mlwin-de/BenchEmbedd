@@ -5,25 +5,40 @@
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 
-<http://project-hobbit.eu/martin_benchmark/benchmark>	a	hobbit:Benchmark;
-    rdfs:label	"Martin Benchmark"@en;
-    rdfs:comment    "Created out of https://github.com/hobbit-project/martin_benchmark"@en;
-	hobbit:usesImage "git.project-hobbit.eu:4567/schmitz.kessenich/martin_benchmark/benchmark-controller" ;
+<http://project-hobbit.eu/martin_benchmark/benchmark>	a	hobbit:Benchmark ;
+    rdfs:label	"Martin Benchmark2"@en ;
+    rdfs:comment    "Created out of https://github.com/hobbit-project/martin_benchmark"@en ;
+	hobbit:imageName "git.project-hobbit.eu:4567/schmitz.kessenich/martin_benchmark/benchmark-controller" ;
 	hobbit:usesImage "git.project-hobbit.eu:4567/schmitz.kessenich/martin_benchmark/datagen" ;
 	hobbit:usesImage "git.project-hobbit.eu:4567/schmitz.kessenich/martin_benchmark/taskgen" ;
 	hobbit:usesImage "git.project-hobbit.eu:4567/schmitz.kessenich/martin_benchmark/eval-storage" ;
 	hobbit:usesImage "git.project-hobbit.eu:4567/schmitz.kessenich/martin_benchmark/eval-module" ;
 
     hobbit:hasAPI <http://project-hobbit.eu/martin_benchmark/API> ;
-    hobbit:version "v1.0"@en;
+    hobbit:version "v1.0"@en ;
+    hobbit:measuresKPI <http://project-hobbit.eu/martin_benchmark/mrr> ;
     hobbit:measuresKPI <http://project-hobbit.eu/martin_benchmark/hitAt1> ;
-    hobbit:hasParameter <http://project-hobbit.eu/martin_benchmark/test> .
+    hobbit:measuresKPI <http://project-hobbit.eu/martin_benchmark/hitAt3> ;
+    hobbit:measuresKPI <http://project-hobbit.eu/martin_benchmark/hitAt10> .
 
 
 
 <http://project-hobbit.eu/martin_benchmark/API> a hobbit:API .
 
-<http://project-hobbit.eu/martin_benchmark/hitAt1> a hobbit:KPI;
-	rdfs:label "hitAt1"@en;
-	rdfs:comment "Hit at 1 description..."@en;
+
+<http://project-hobbit.eu/martin_benchmark/mrr>		a	hobbit:KPI ; 
+	rdfs:label "mrr"@en ;
+	rdfs:comment "hit comment"@en ;
+	rdfs:range xsd:float .
+<http://project-hobbit.eu/martin_benchmark/hitAt10>		a	hobbit:KPI ;
+	rdfs:label "hit @ 10"@en ;
+	rdfs:comment "hit comment"@en ;
+	rdfs:range xsd:float .
+<http://project-hobbit.eu/martin_benchmark/hitAt3>		a	hobbit:KPI ;
+	rdfs:label "hit @ 3"@en ;
+	rdfs:comment "hit comment"@en ;
+	rdfs:range xsd:float .
+<http://project-hobbit.eu/martin_benchmark/hitAt1>		a	hobbit:KPI ;
+	rdfs:label "hit @ 1"@en ;
+	rdfs:comment "hit comment"@en ;
 	rdfs:range xsd:float .

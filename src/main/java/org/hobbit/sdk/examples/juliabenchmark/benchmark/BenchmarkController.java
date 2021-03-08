@@ -24,6 +24,11 @@ public class BenchmarkController extends AbstractBenchmarkController {
 
         // Your initialization code comes here...
 
+        // get KPIs for evaluation module
+        //envVariablesEvaluationModule = new String[]{
+        //        PlatformConstants.EVALUATION_RECALL + "=" + "http://w3id.org/bench#recall"
+        //};
+
         // You might want to load parameters from the benchmarks parameter model
         NodeIterator iterator = benchmarkParamModel.listObjectsOfProperty(benchmarkParamModel
                 .getProperty("http://project-hobbit.eu/martin_benchmark/hitAt1"));

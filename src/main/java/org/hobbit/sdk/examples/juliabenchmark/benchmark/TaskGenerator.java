@@ -18,6 +18,10 @@ public class TaskGenerator extends AbstractTaskGenerator {
         // Always init the super class first!
         super.init();
         logger.debug("Init()");
+
+//        if(System.getenv().containsKey(EXPERIMENT_URI+"/benchmarkParam1")){
+//            String param1 = System.getenv().get(EXPERIMENT_URI+"/benchmarkParam1");
+//        }
         // Your initialization code comes here...
     }
 

@@ -34,9 +34,9 @@ public class DataGenerator extends AbstractDataGenerator {
         super.init();
         logger.debug("Init()");
         // Your initialization code comes here...
-        fileName = "entity2id.txt";
+        fileName = "entities.dict";
         fileName2 = "test.txt";
-        fileName3 = "relation2id.txt";
+        fileName3 = "relations.dict";
 
         InputStream entity2Id = getClass().getClassLoader().getResourceAsStream(fileName);
         InputStream test = getClass().getClassLoader().getResourceAsStream(fileName2);
@@ -58,13 +58,13 @@ public class DataGenerator extends AbstractDataGenerator {
         while ((line = reader.readLine()) != null)
 	    {
 	    	String[] parts = line.split("\t");
-	    	entity2id.put(Integer.parseInt(parts[1]), parts[0]);    
+	    	entity2id.put(Integer.parseInt(parts[0]), parts[1]);    
 	    }
         reader.close();
         while ((line = reader3.readLine()) != null)
 	    {
 	    	String[] parts = line.split("\t");
-	    	relation2id.put(Integer.parseInt(parts[1]), parts[0]);    
+	    	relation2id.put(Integer.parseInt(parts[0]), parts[1]);    
 	    }
         reader3.close();
         logger.debug("generateData()");

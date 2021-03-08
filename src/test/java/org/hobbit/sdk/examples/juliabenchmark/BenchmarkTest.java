@@ -92,6 +92,15 @@ public class BenchmarkTest {
     }
 
     @Test
+    public void buildSystemImage() throws Exception {
+
+        init(false);
+        MultiThreadedImageBuilder builder = new MultiThreadedImageBuilder(1);
+        builder.addTask(systemAdapterBuilder);
+        builder.build();
+    }
+
+    @Test
     public void checkHealth() throws Exception {
         checkHealth(false);
     }
@@ -166,7 +175,7 @@ public class BenchmarkTest {
                         .evalModule(evalModule).evalModuleImageName(evalModuleBuilder.getImageName())
                         .systemAdapter(systemAdapter).systemAdapterImageName(SYSTEM_IMAGE_NAME)
                         //.customContainerImage(systemAdapter, DUMMY_SYSTEM_IMAGE_NAME)
-                ;
+        ;
 
         commandQueueListener.setCommandReactions(
                 commandReactionsBuilder.containerCommandsReaction(), //comment this if you want to run containers on a platform instance (if the platform is running)

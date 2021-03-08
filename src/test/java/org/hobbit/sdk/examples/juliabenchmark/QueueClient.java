@@ -59,9 +59,9 @@ public class QueueClient {
         String id = String.valueOf(String.valueOf(new Date().getTime()));
         cfg.id = id;
         Calendar cal = Calendar.getInstance();
-        cal.set(Calendar.YEAR, 2016);
-        cal.set(Calendar.MONTH, Calendar.SEPTEMBER);
-        cal.set(Calendar.DAY_OF_MONTH, 5);
+        cal.set(Calendar.YEAR, 2021);
+        cal.set(Calendar.MONTH, Calendar.FEBRUARY);
+        cal.set(Calendar.DAY_OF_MONTH, 1);
         cfg.executionDate = cal;
         cfg.benchmarkUri = benchmarkUri;
         cfg.systemUri = systemUri;

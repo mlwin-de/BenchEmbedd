@@ -10,10 +10,9 @@ package:
 build-images:
 	mvn -Dtest=BenchmarkTest#buildImages surefire:test
 
+
 test-dockerized-benchmark:
-	mvn -Dtest=BenchmarkTest#checkHealthDockerized test
-
-
+use:
 push-images:
 	docker push git.project-hobbit.eu:4567/schmitz.kessenich/martin_benchmark/benchmark-controller:latest
 	docker push git.project-hobbit.eu:4567/schmitz.kessenich/martin_benchmark/datagen:latest

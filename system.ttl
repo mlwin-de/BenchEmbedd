@@ -5,8 +5,8 @@
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 
-<http://project-hobbit.eu/martin_benchmark/system>	a	hobbit:SystemInstance;
-    rdfs:label	"Martin System"@en;
+<http://project-hobbit.eu/sample-system/system>	a	hobbit:SystemInstance;
+    rdfs:label	"Sample System"@en;
 	rdfs:comment "Example system for SDK Example Benchmark"@en;
 	hobbit:implementsAPI <http://project-hobbit.eu/martin_benchmark/API>;
-	hobbit:imageName "git.project-hobbit.eu:4567/schmitz.kessenich/martin_benchmark/system-adapter" .
+	hobbit:imageName "git.project-hobbit.eu:4567/schmitz.kessenich/sample-system/system-adapter" .
