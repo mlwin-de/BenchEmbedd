@@ -16,7 +16,7 @@ Note: This repository is based on the [Hobbit Java SDK Example](https://github.c
 6) Install SDK dependency into your local maven repository (`mvn validate`)
 
 
-# Test if the benchmark is installed properly: 
+## Test if the benchmark is installed properly: 
 
 test-benchmark: 
 
@@ -44,7 +44,7 @@ You dont need a running Hobbit instance to run this code!
 
 The provided Benchmark is a link prediction benchmark that you can run locally from pure java code, locally using docker containers and eventually online using the HOBBIT plattform. The benchmarks consist of a benchmark controller, a data generator, a task generator, an evaluation storage and an evaluation module. All those program parts can be encapsulated in distinct docker images. You can test them locally from pure code or as docker images. Additionally, the benchmark components are also uploaded on the HOBBIT server, s.t. you can use them for fair online benchmarking of the available link prediction systems.
 
-The benchmark computes following Metrics on WN18rr: 
+The benchmark computes the following Metrics on WN18rr: 
 - #### Metrics
 * Hit@1  
 * Hit@3  
@@ -53,38 +53,40 @@ The benchmark computes following Metrics on WN18rr:
 
 
 ## Develop your own System
-
+- #### Modify the meta-data file system.ttl
+- #### Modify the Constants file
+- #### Write your system
 - #### Debug your System locally
 
 - #### Benchmark the System online
 In order to benchmark your system online, you need to create a Hobbit GitLab account and push your system as a docker image and a meta data file to a repository.
 
-To be able to upload a system in the HOBBIT platform it is necessary to register on [HOBBIT GitLab](git.project-hobbit.eu). You need to upload your System as a docker image and a meta-data file there. Then, the system will appear on the list of possible Systems of the BenchEmbed benchmark on the HOBBIT platform.
+To be able to upload a system in the HOBBIT platform it is necessary to register on [HOBBIT GitLab](git.project-hobbit.eu). You need to upload your System as a docker image and a meta-data file to the repository. To upload the System as a docker image you need to create the docker image, test it locally and push it to the repository using the following commands:
 
+*note need to change the code s.t. there is a system-test and system-build-image method to only check and build the system not the whole benchmark. I also need to check if pushing the system to another repo really works.
 
+build docker images: 
+
+    $ mvn -Dtest=BenchmarkTest#buildImages surefire:test 
+
+test-dockerized-system: 
+
+    $  mvn -Dtest=BenchmarkTest#checkHealthDockerized test 
+    
 push-image:
+
 ```sh
 $ docker push git.project-hobbit.eu:4567/username/benchmark_name/system-adapter:latest 
 ```
 *username – your username for the GitLab [6]*
-*benchmark_name – the name of your benchmark that will appear in the Hobbit Platform*
+*system_name – the name of your system that will appear in the Hobbit Platform*
 
+Afterwards, push the meta-data file system.ttl to your HOBBIT GitLab repository.
+Login to [HOBBIT](https://master.project-hobbit.eu/) using your GirLab ceredentials and click 'Benchmarks' on the upper bar.
+Then select 'BenchEmbed' from the list of possible Benchmarks. If your system was loaded up successfully the system will appear on the list of possible Systems of the BenchEmbed benchmark. (If you can't find your system there, there is most likely an error inside the System.ttl meta data file.)
+Choose your system and press the 'submit button'. Now you can click the link from the popup-window to get to the Experiment-details page to see the result once it is done. The status of the experiment can be seen by selecting *Experiment* Status under the *Experiments* button. When the Experiment is done, the results can be seen by going directly to the URL that the platform provided or by selecting *Experiment* Results under the *Experiments* button, which will show a list of all ran experiments. 
 
-### Testing
-
-
-After starting the platform, the following interfaces will be available: [2] 
-* localhost:8080(GUI, default credentials are: challenge-organiser:hobbit,system-provider:hobbit and guest: hobbit) 
-* localhost:8081(RabbitMQ) 
-* localhost:8890(Virtuoso, default credentials are: Hobbit Platform: Password and dba: Password) 
-* localhost:8181 (Keycloak, admin credentials are: admin:H16obbit) 
-* localhost:5601(Kibana, available if deployed together with the ELK stack) 
-
-Next step is to run the benchmark, select the respective system and give the parameters for the model (if implemented). 
-
-An URL with the running experiment’s results will be provided by the platform.  The status of the experiment can be seen by selecting *Experiment* Status under the *Experiments* button. When the Experiment is done, the results can be seen by going directly to the URL that the platform provided or by selecting *Experiment* Results under the *Experiments* button, which will show a list of all ran experiments. 
-
-The result of an experiment is a KPI table which shows the parameters of the model and the accuracy metrics. The logs of the experiment are available in JSON, CSV and TXT format for both the benchmark and system. 
+The result of an experiment is a KPI table which shows the parameters of the model and the accuracy metrics. The logs of the experiment are available in JSON, CSV and TXT format. 
 
 [//]: # (These are reference links used in the body of this note and get stripped out when the markdown processor does its job. There is no need to format nicely because it shouldn't be seen. Thanks SO - http://stackoverflow.com/questions/4823468/store-comments-in-markdown-syntax)
 
