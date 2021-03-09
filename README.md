@@ -1,5 +1,5 @@
 ## Introduction
-This repository contains a Benchmark for link prediction using the [HOBBIT platform](https://project-hobbit.eu/outcomes/hobbit-platform/). The HOBBIT platform is a distributed FAIR benchmarking platform designed for the evaluation of a Linked Data lifecycle. 
+This repository contains a benchmark for link prediction using the [HOBBIT platform](https://project-hobbit.eu/outcomes/hobbit-platform/). The HOBBIT platform is a distributed FAIR benchmarking platform designed for the evaluation of a linked data lifecycle. 
 
 This repository also contains the 'TransE' model as an example system for link prediction. 
 Follow the instructions of this ReadMe to install the benchmark locally and write your own link prediction system to benchmark it and compare it with other link prediction systems.
@@ -17,6 +17,7 @@ Note: This repository is based on the [Hobbit Java SDK Example](https://github.c
 
 
 ## Test if the benchmark is installed properly: 
+The benchmark is a java [Maven](https://maven.apache.org/) project. Run following commands to test the version from pure code and the dockerized version of the benchmark locally.
 
 test-benchmark: 
 
@@ -59,9 +60,11 @@ In order to benchmark your system online, you need to create a Hobbit GitLab acc
 To be able to upload a system in the HOBBIT platform it is necessary to register on [HOBBIT GitLab](git.project-hobbit.eu). You need to upload your System as a docker image and a meta-data file to the repository. 
 
 #### Write your system
-The file TransEtest.java provides an example of how a system should look like. You can copy this file and change the method 'test_triple' to implement another link prediction system.
+The file TransEtest.java provides an example of how a system should look like. You can use this file as a base to implement other link prediction systems. The method 'test_triple' contains the most important part of the link prediction model.
 
 #### Modify the meta-data file system.ttl
+In order to run the System at the HOBBIT platform you need to provide a meta data file. Use the example file system.ttl and adjust the following lines. You can also change the rdfs:label and rdfs:comment in the file. Create a new repository at your HOBBIT gitlab account and push the meta-data file there. (the file needs to be named 'system.ttl').
+
 Replace in line 8 'sample-system' through your system repository name.
       
     <http://project-hobbit.eu/sample-system/system>	a	hobbit:SystemInstance;
@@ -70,9 +73,11 @@ change the path in line 12. Replace 'schmitz.kessenich' through your user name a
 
 	hobbit:imageName "git.project-hobbit.eu:4567/schmitz.kessenich/sample-system/system-adapter" .
      
+ Afterwards, push the meta-data file system.ttl to your HOBBIT GitLab repository.
+ 
 #### Modify the Constants file
 
-Change the variable GIT_SYSTEM_USERNAME to your username on HOBBIT gitlab and the variable SYSTEM_NAME to the name of your GitLab System repository.
+Change the variable GIT_SYSTEM_USERNAME to your username on HOBBIT GitLab and the variable SYSTEM_NAME to the name of your new GitLab System repository.
 
 #### Debug your System locally
    Run checkHealth() to test your system. Note that the code in SystemAdapter.java decides which system will be used.
@@ -81,7 +86,7 @@ Change the variable GIT_SYSTEM_USERNAME to your username on HOBBIT gitlab and th
 
 #### Benchmark the System online
 
-To upload the System as a docker image you need to create the docker image, test it locally and push it to the repository using the following commands:
+To upload the system as a docker image you need to create the docker image, test it locally and push it to the repository using the following commands:
 
 build docker system image: 
 
@@ -97,9 +102,9 @@ push-image:
     
 Again, replace 'schmitz.kessenich' through your user name and 'sample-system' through your repository name.
 
-Afterwards, push the meta-data file system.ttl to your HOBBIT GitLab repository.
+
 Login to [HOBBIT](https://master.project-hobbit.eu/) using your GitLab ceredentials and click 'Benchmarks' on the upper bar.
-Then select 'BenchEmbed' from the list of possible Benchmarks. If your system was loaded up successfully the system will appear on the list of possible Systems of the BenchEmbed benchmark. (If you can't find your system there, there is most likely an error inside the System.ttl meta data file.)
+Then select 'BenchEmbed' from the list of possible Benchmarks. If your system was loaded up successfully the system will appear on the list of possible Systems of the BenchEmbed benchmark. (If you can't find your system there, there is most likely an error inside the system.ttl meta data file.)
 Choose your system and press the 'submit button'. Now you can click the link from the popup-window to get to the Experiment-details page to see the result once it is done. The status of the experiment can be seen by selecting *Experiment* Status under the *Experiments* button. When the Experiment is done, the results can be seen by going directly to the URL that the platform provided or by selecting *Experiment* Results under the *Experiments* button, which will show a list of all ran experiments. 
 
 The result of an experiment is a KPI table which shows the parameters of the model and the accuracy metrics. The logs of the experiment are available in JSON, CSV and TXT format. 
