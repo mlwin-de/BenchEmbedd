@@ -33,7 +33,6 @@ public class TransETest {
 		this.relation_num = 0;
 		this.entity_num = 0;
 		prepare();
-
 	}
 	
 	public void prepare() throws IOException {
