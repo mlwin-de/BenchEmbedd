@@ -57,7 +57,7 @@ The benchmark computes the following Metrics on WN18rr:
 
 In order to benchmark your system online, you need to create a Hobbit GitLab account and push your system as a docker image and a meta data file to a repository.
 
-To be able to upload a system in the HOBBIT platform it is necessary to register on [HOBBIT GitLab](git.project-hobbit.eu). You need to upload your System as a docker image and a meta-data file to the repository. 
+To be able to upload a system in the HOBBIT platform it is necessary to register on [HOBBIT GitLab](https://git.project-hobbit.eu/). You need to upload your System as a docker image and a meta-data file to the repository. 
 
 #### Write your system
 The file TransEtest.java provides an example of how a system should look like. You can use this file as a base to implement other link prediction systems. The method 'test_triple' contains the most important part of the link prediction model.
