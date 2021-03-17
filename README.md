@@ -114,7 +114,9 @@ The result of an experiment is a KPI table which shows the parameters of the mod
 
 Per default the repository contains the WN18RR data set. You can find the data set under src/test/resorurces. In this folder there are also 2 files 'entity2vec.txt' and 'relations2vec.txt'. Those files contain the trained embeddings of entities and relations. They are trained by a TransE model from [Knowledge Graph Embedding](https://github.com/DeepGraphLearning/KnowledgeGraphEmbedding). After training the embeddings, the output of the TransE model is converted from an npy file to a txt file using src/kge_output_to_data.py.
 
-If you write your own system you need to provide additionally to the system (that can do your link prediction computation) the trained embedding files 'entity2vec.txt' and 'relations2vec.txt' files. This repository is not designed to train those vectors!
+If you write your own system you need to provide additionally to the system (that can do your link prediction computation) the trained embedding files 'entity2vec.txt' and 'relations2vec.txt' files. Replace the already contained files at the same location before you build the SystemAsapter Docker image and they will be loaded up automatically.
+
+Note: This repository is not designed to train those vectors!
 
 
 [//]: # (These are reference links used in the body of this note and get stripped out when the markdown processor does its job. There is no need to format nicely because it shouldn't be seen. Thanks SO - http://stackoverflow.com/questions/4823468/store-comments-in-markdown-syntax)
