@@ -55,10 +55,6 @@ The benchmark computes the following Metrics on WN18rr:
 
 ## Develop your own System
 
-In order to benchmark your system online, you need to create a Hobbit GitLab account and push your system as a docker image and a meta data file to a repository.
-
-To be able to upload a system in the HOBBIT platform it is necessary to register on [HOBBIT GitLab](https://git.project-hobbit.eu/). You need to upload your System as a docker image and a meta-data file to the repository. 
-
 #### Write your system
 The file TransEtest.java provides an example of how a system should look like. You can use this file as a base to implement other link prediction systems. The method 'test_triple' contains the most important part of the link prediction model.
 
@@ -69,7 +65,7 @@ Replace in line 8 'sample-system' through your system repository name.
       
     <http://project-hobbit.eu/sample-system/system>	a	hobbit:SystemInstance;
       
-change the path in line 12. Replace 'schmitz.kessenich' through your user name and 'sample-system' through your repository name.
+change the path in line 12. Replace 'sadeghi.afshin' through your user name and 'sample-system' through your repository name.
 
 	hobbit:imageName "git.project-hobbit.eu:4567/schmitz.kessenich/sample-system/system-adapter" .
      
@@ -84,8 +80,15 @@ Change the variable GIT_SYSTEM_USERNAME to your username on HOBBIT GitLab and th
    
       $ mvn -Dtest=BenchmarkTest#checkHealth test 
 
-#### Benchmark the System online
+## Benchmark the System online
 
+In order to benchmark your system online, you need to create a Hobbit GitLab account and push your system as a docker image and a meta data file to a repository.
+
+To be able to upload a system in the HOBBIT platform it is necessary to register on [HOBBIT GitLab](https://git.project-hobbit.eu/). After creating the account, go to User Settings (click on your user picture in the upper right corner at your HOBBIT gitlab instance –> Settings) -> Access Token and generate a personal access token. Now login into your hobbit docker instance to be able to upload a docker image. 
+
+	$ sudo docker login git.project-hobbit.eu:4567
+
+Use your email adress as username and the generated access-token as password. Now you are able to push docker images to repositories from your HOBBIT GitLab instance. Later you need to upload your System as a docker image and a meta-data file to a repository there.
 To upload the system as a docker image you need to create the docker image, test it locally and push it to the repository using the following commands:
 
 build docker system image: 
@@ -98,9 +101,9 @@ test-dockerized-system:
     
 push-image:
 
-    $ docker push git.project-hobbit.eu:4567/schmitz.kessenich/sample-system/system-adapter:latest 
+    $ docker push git.project-hobbit.eu:4567/sadeghi.afshin/sample-system/system-adapter:latest 
     
-Again, replace 'schmitz.kessenich' through your user name and 'sample-system' through your repository name.
+Again, replace 'sadeghi.afshin' through your user name and 'sample-system' through your repository name.
 
 
 Login to [HOBBIT](https://master.project-hobbit.eu/) using your GitLab ceredentials and click 'Benchmarks' on the upper bar.
@@ -114,9 +117,9 @@ The result of an experiment is a KPI table which shows the parameters of the mod
 
 Per default the repository contains the WN18RR data set. You can find the data set under src/test/resorurces. In this folder there are also 2 files 'entity2vec.txt' and 'relations2vec.txt'. Those files contain the trained embeddings of entities and relations. They are trained by a TransE model from [Knowledge Graph Embedding](https://github.com/DeepGraphLearning/KnowledgeGraphEmbedding). After training the embeddings, the output of the TransE model is converted from an npy file to a txt file using src/kge_output_to_data.py.
 
-If you write your own system you need to provide additionally to the system (that can do your link prediction computation) the trained embedding files 'entity2vec.txt' and 'relations2vec.txt' files. Replace the already contained files at the same location before you build the SystemAsapter Docker image and they will be loaded up automatically.
+If you write your own system you need to provide additionally to the system (that can do your link prediction computation) the trained embedding files 'entity2vec.txt' and 'relations2vec.txt' files. Replace the already contained files at the same location before you build the SystemAdapter Docker image and they will be loaded up automatically.
 
-Note: This repository is not designed to train those vectors!
+Note: This repository is not designed to train those embedding vectors!
 
 
 [//]: # (These are reference links used in the body of this note and get stripped out when the markdown processor does its job. There is no need to format nicely because it shouldn't be seen. Thanks SO - http://stackoverflow.com/questions/4823468/store-comments-in-markdown-syntax)
