@@ -1,4 +1,4 @@
-package org.hobbit.sdk.examples.juliabenchmark;
+package org.hobbit.sdk.examples.mlwin;
 
 
 import org.apache.jena.rdf.model.Model;
@@ -8,11 +8,10 @@ import org.hobbit.core.components.Component;
 import org.hobbit.core.rabbit.RabbitMQUtils;
 import org.hobbit.sdk.docker.AbstractDockerizer;
 import org.hobbit.sdk.docker.RabbitMqDockerizer;
-import org.hobbit.sdk.docker.builders.*;
 import org.hobbit.sdk.docker.builders.hobbit.*;
 
-import org.hobbit.sdk.examples.juliabenchmark.benchmark.*;
-import org.hobbit.sdk.examples.juliabenchmark.system.SystemAdapter;
+import org.hobbit.sdk.examples.mlwin.benchmark.*;
+import org.hobbit.sdk.examples.mlwin.system.SystemAdapter;
 import org.hobbit.sdk.utils.CommandQueueListener;
 import org.hobbit.sdk.utils.ComponentsExecutor;
 import org.hobbit.sdk.utils.ModelsHandler;
@@ -24,7 +23,6 @@ import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.contrib.java.lang.system.EnvironmentVariables;
 
-import java.io.File;
 import java.io.IOException;
 import java.util.Date;
 
@@ -33,7 +31,7 @@ import static org.hobbit.core.Constants.*;
 
 import static org.hobbit.sdk.Constants.BENCHMARK_URI;
 import static org.hobbit.sdk.Constants.GIT_USERNAME;
-import static org.hobbit.sdk.examples.juliabenchmark.Constants.*;
+import static org.hobbit.sdk.examples.mlwin.Constants.*;
 
 /**
  * @author Pavel Smirnov

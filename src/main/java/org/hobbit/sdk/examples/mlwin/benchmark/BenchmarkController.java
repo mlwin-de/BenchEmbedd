@@ -1,4 +1,4 @@
-package org.hobbit.sdk.examples.juliabenchmark.benchmark;
+package org.hobbit.sdk.examples.mlwin.benchmark;
 
 import org.apache.commons.lang3.ArrayUtils;
 import org.apache.jena.rdf.model.NodeIterator;
@@ -8,7 +8,7 @@ import org.hobbit.core.rabbit.RabbitMQUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import static org.hobbit.sdk.examples.juliabenchmark.Constants.*;
+import static org.hobbit.sdk.examples.mlwin.Constants.*;
 
 import java.io.IOException;
 

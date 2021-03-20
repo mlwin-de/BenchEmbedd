@@ -1,4 +1,4 @@
-package org.hobbit.sdk.examples.juliabenchmark.benchmark;
+package org.hobbit.sdk.examples.mlwin.benchmark;
 /*
  * forwards the data to the system
  * forwards an id (meaning the type of score) to the storage

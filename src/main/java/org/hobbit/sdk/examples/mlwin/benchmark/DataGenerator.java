@@ -1,11 +1,10 @@
-package org.hobbit.sdk.examples.juliabenchmark.benchmark;
+package org.hobbit.sdk.examples.mlwin.benchmark;
 
 import org.hobbit.core.components.AbstractDataGenerator;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.apache.commons.lang3.tuple.ImmutableTriple;
 import org.apache.commons.lang3.tuple.Triple;
-import static org.hobbit.sdk.examples.juliabenchmark.Constants.BENCHMARK_URI;
 
 import java.io.*;
 import java.util.HashMap;

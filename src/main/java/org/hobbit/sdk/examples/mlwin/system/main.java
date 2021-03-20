@@ -1,8 +1,6 @@
-package org.hobbit.sdk.examples.juliabenchmark.system;
+package org.hobbit.sdk.examples.mlwin.system;
 
 import java.io.IOException;
-
-import org.apache.jena.sparql.function.library.print;
 
 public class main {
 

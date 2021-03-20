@@ -1,16 +1,14 @@
-package org.hobbit.sdk.examples.juliabenchmark.system;
+package org.hobbit.sdk.examples.mlwin.system;
 
 import java.io.*;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.Map.Entry;
-import java.util.Scanner;
 import java.util.stream.Collectors;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import sun.jvm.hotspot.memory.SystemDictionary;
 
 public class TransETest {
     private static final Logger logger = LoggerFactory.getLogger(TransETest.class);

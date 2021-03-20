@@ -1,7 +1,7 @@
-package org.hobbit.sdk.examples.juliabenchmark;
+package org.hobbit.sdk.examples.mlwin;
 
 
-import static org.hobbit.sdk.examples.juliabenchmark.Constants.*;
+import static org.hobbit.sdk.examples.mlwin.Constants.*;
 
 import org.hobbit.core.run.ComponentStarter;
 import org.hobbit.sdk.docker.builders.DynamicDockerFileBuilder;

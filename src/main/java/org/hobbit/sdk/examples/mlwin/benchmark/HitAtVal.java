@@ -1,4 +1,4 @@
-package org.hobbit.sdk.examples.juliabenchmark.benchmark;
+package org.hobbit.sdk.examples.mlwin.benchmark;
 
 public class HitAtVal {
     public int hitForHeaD = 0;

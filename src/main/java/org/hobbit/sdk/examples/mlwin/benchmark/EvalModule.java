@@ -1,4 +1,4 @@
-package org.hobbit.sdk.examples.juliabenchmark.benchmark;
+package org.hobbit.sdk.examples.mlwin.benchmark;
 
 import org.apache.jena.rdf.model.Model;
 import org.apache.jena.rdf.model.ModelFactory;
@@ -6,7 +6,7 @@ import org.apache.jena.rdf.model.Resource;
 import org.apache.jena.vocabulary.RDF;
 import org.hobbit.core.components.AbstractEvaluationModule;
 import org.hobbit.core.rabbit.RabbitMQUtils;
-import org.hobbit.sdk.examples.juliabenchmark.Constants;
+import org.hobbit.sdk.examples.mlwin.Constants;
 import org.hobbit.vocab.HOBBIT;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

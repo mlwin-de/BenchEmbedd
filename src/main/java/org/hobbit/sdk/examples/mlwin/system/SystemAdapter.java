@@ -1,4 +1,4 @@
-package org.hobbit.sdk.examples.juliabenchmark.system;
+package org.hobbit.sdk.examples.mlwin.system;
 
 import org.apache.jena.rdf.model.NodeIterator;
 import org.apache.jena.rdf.model.Property;
@@ -11,7 +11,6 @@ import org.slf4j.LoggerFactory;
 
 import java.io.IOException;
 import java.util.HashMap;
-import java.util.IdentityHashMap;
 import java.util.Map;
 
 

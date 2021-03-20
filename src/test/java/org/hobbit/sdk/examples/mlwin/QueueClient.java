@@ -1,26 +1,20 @@
-package org.hobbit.sdk.examples.juliabenchmark;
+package org.hobbit.sdk.examples.mlwin;
 
 import org.apache.jena.rdf.model.Model;
-import org.apache.jena.rdf.model.ModelFactory;
 import org.apache.jena.rdf.model.Resource;
 import org.apache.jena.vocabulary.RDF;
-import org.apache.jena.vocabulary.XSD;
 import org.hobbit.controller.data.ExperimentConfiguration;
 import org.hobbit.controller.queue.ExperimentQueueImpl;
 import org.hobbit.core.Constants;
 import org.hobbit.core.rabbit.RabbitMQUtils;
-import org.hobbit.sdk.examples.dummybenchmark.DummyBenchmarkController;
-import org.hobbit.sdk.utils.ModelsHandler;
 import org.hobbit.vocab.HOBBIT;
 
 import org.junit.contrib.java.lang.system.EnvironmentVariables;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import java.io.StringWriter;
 import java.util.Calendar;
 import java.util.Date;
-import java.util.Map;
 
 /**
  * @author Pavel Smirnov. (psmirnov@agtinternational.com / smirnp@gmail.com)

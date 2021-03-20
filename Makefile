@@ -10,13 +10,14 @@ package:
 build-images:
 	mvn -Dtest=BenchmarkTest#buildImages surefire:test
 
-
 test-dockerized-benchmark:
-use:
-push-images:
-	docker push git.project-hobbit.eu:4567/schmitz.kessenich/martin_benchmark/benchmark-controller:latest
-	docker push git.project-hobbit.eu:4567/schmitz.kessenich/martin_benchmark/datagen:latest
-	docker push git.project-hobbit.eu:4567/schmitz.kessenich/martin_benchmark/taskgen:latest
-	docker push git.project-hobbit.eu:4567/schmitz.kessenich/martin_benchmark/eval-storage:latest
-	docker push git.project-hobbit.eu:4567/schmitz.kessenich/martin_benchmark/system-adapter:latest
-	docker push git.project-hobbit.eu:4567/schmitz.kessenich/martin_benchmark/eval-module:latest
+    mvn -Dtest=BenchmarkTest#checkHealthDockerized test
+
+push-system-image: # replace the account and repo name to push the image to your system
+	docker push git.project-hobbit.eu:4567/sadeghi.afshin/sample-system/system-adapter:latest
+
+push-images: # only the benchmark provider can do this
+	docker push git.project-hobbit.eu:4567/sadeghi.afshin/mlwin/benchmark-controller:latest
+	docker push git.project-hobbit.eu:4567/sadeghi.afshin/mlwin/datagen:latest
+	docker push git.project-hobbit.eu:4567/sadeghi.afshin/mlwin/eval-storage:latest
+	docker push git.project-hobbit.eu:4567/sadeghi.afshin/mlwin/eval-module:latest

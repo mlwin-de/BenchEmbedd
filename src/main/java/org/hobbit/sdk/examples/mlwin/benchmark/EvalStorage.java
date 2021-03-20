@@ -1,4 +1,4 @@
-package org.hobbit.sdk.examples.juliabenchmark.benchmark;
+package org.hobbit.sdk.examples.mlwin.benchmark;
 
 import org.hobbit.core.components.AbstractEvaluationStorage;
 import org.hobbit.core.components.test.InMemoryEvaluationStore;
