@@ -59,7 +59,7 @@ The benchmark computes the following Metrics on WN18rr:
 The file TransEtest.java provides an example of how a system should look like. You can use this file as a base to implement other link prediction systems. The method 'test_triple' contains the most important part of the link prediction model.
 
 #### Modify the meta-data file system.ttl
-In order to run the System at the HOBBIT platform you need to provide a meta data file. Use the example file system.ttl and adjust the following lines. You can also change the rdfs:label and rdfs:comment in the file. Create a new repository at your HOBBIT gitlab account and push the meta-data file there. (the file needs to be named 'system.ttl').
+In order to run the System at the HOBBIT platform you need to provide a meta data file. Use the example file system.ttl and adjust the following lines. You can also change the rdfs:label and rdfs:comment in the file. Create a new repository at your HOBBIT gitlab account and push the meta-data file there. The file needs to be named 'system.ttl'. Note: instead of pushing through git you can also create the metadata file directly in the repository tab in the browser.
 
 Replace in line 8 'sample-system' through your system repository name.
       
