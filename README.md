@@ -38,12 +38,13 @@ test-dockerized-benchmark:
     
 Note: If problems with HOBBIT occur you can check here: https://hobbit-project.github.io/quick_guide.html
 and this video: https://www.youtube.com/watch?v=ktAtwU55M6s
+
 You dont need a running Hobbit instance to run this code!
 
 
-## The BenchEmbed Benchmark for Link Prediction
+## The MLWin Benchmark for Link Prediction
 
-The provided Benchmark is a link prediction benchmark that you can run locally from pure java code, locally using docker containers and eventually online using the HOBBIT plattform. The benchmarks consist of a benchmark controller, a data generator, a task generator, an evaluation storage and an evaluation module. All those program parts can be encapsulated in distinct docker images. You can test them locally from pure code or as docker images. Additionally, the benchmark components are also uploaded on the HOBBIT server, s.t. you can use them for fair online benchmarking of the available link prediction systems.
+The provided benchmark is a link prediction benchmark that you can run locally from pure java code, locally using docker containers and eventually online using the HOBBIT plattform. The benchmarks consist of a benchmark controller, a data generator, a task generator, an evaluation storage and an evaluation module. All those program parts can be encapsulated in distinct docker images. You can test them locally from pure code or as docker images. Additionally, the benchmark components are also uploaded on the HOBBIT server, s.t. you can use them for fair online benchmarking of the available link prediction systems.
 
 The benchmark computes the following Metrics on WN18rr: 
 #### Metrics
@@ -55,11 +56,15 @@ The benchmark computes the following Metrics on WN18rr:
 
 ## Develop your own System
 
+The purpose of this repository is that people can test their own link prediction system on the benchmark. To write your own compatible system following steps need to be done.
+
 #### Write your system
 The file TransEtest.java provides an example of how a system should look like. You can use this file as a base to implement other link prediction systems. The method 'test_triple' contains the most important part of the link prediction model.
 
 #### Modify the meta-data file system.ttl
-In order to run the System at the HOBBIT platform you need to provide a meta data file. Use the example file system.ttl and adjust the following lines. You can also change the rdfs:label and rdfs:comment in the file. Create a new repository at your HOBBIT gitlab account and push the meta-data file there. The file needs to be named 'system.ttl'. Note: instead of pushing through git you can also create the metadata file directly in the repository tab in the browser.
+In order to run the System at the HOBBIT platform you need to provide a meta data file. Use the example file system.ttl and adjust the following lines. You can also change the rdfs:label and rdfs:comment in the file. Create a new repository at your HOBBIT gitlab account and push the meta-data file there. The file needs to be named 'system.ttl'.
+
+Note: instead of pushing through git you can also create the metadata file directly in the repository tab in the browser.
 
 Replace in line 8 'sample-system' through your system repository name.
       
