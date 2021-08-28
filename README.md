@@ -124,8 +124,12 @@ Per default the repository contains the WN18RR data set. You can find the data s
 
 If you write your own system you need to provide additionally to the system (that can do your link prediction computation) the trained embedding files 'entity2vec.txt' and 'relations2vec.txt' files. Replace the already contained files at the same location before you build the SystemAdapter Docker image and they will be loaded up automatically.
 
-Note: This repository is not designed to train those embedding vectors!
+Note: This repository is not designed to train those embedding models and only performs evaluations.
 
+
+### Setting the path to trained models and datasets
+
+To set the path to trained models, and also to the datasets, their path must be given as variable in file: `src/main/java/org/hobbit/sdk/examples/mlwin/system/main.java`   
 
 [//]: # (These are reference links used in the body of this note and get stripped out when the markdown processor does its job. There is no need to format nicely because it shouldn't be seen. Thanks SO - http://stackoverflow.com/questions/4823468/store-comments-in-markdown-syntax)
  
