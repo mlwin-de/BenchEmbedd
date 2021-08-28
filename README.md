@@ -85,6 +85,12 @@ Change the variable GIT_SYSTEM_USERNAME to your username on HOBBIT GitLab and th
    
       $ mvn -Dtest=BenchmarkTest#checkHealth test 
 
+
+### Setting the path to trained models and datasets
+
+To set the path to trained models, and also to the datasets, their path must be given as variable in file: `src/main/java/org/hobbit/sdk/examples/mlwin/system/main.java`   
+
+
 ## Benchmark the System online
 
 In order to benchmark your system online, you need to create a Hobbit GitLab account and push your system as a docker image and a meta data file to a repository.
@@ -126,10 +132,6 @@ If you write your own system you need to provide additionally to the system (tha
 
 Note: This repository is not designed to train those embedding models and only performs evaluations.
 
-
-### Setting the path to trained models and datasets
-
-To set the path to trained models, and also to the datasets, their path must be given as variable in file: `src/main/java/org/hobbit/sdk/examples/mlwin/system/main.java`   
 
 [//]: # (These are reference links used in the body of this note and get stripped out when the markdown processor does its job. There is no need to format nicely because it shouldn't be seen. Thanks SO - http://stackoverflow.com/questions/4823468/store-comments-in-markdown-syntax)
  
