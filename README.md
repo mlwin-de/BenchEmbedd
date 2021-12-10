@@ -138,3 +138,17 @@ Note: This repository is not designed to train those embedding models and only p
  ![alt text][logo]
 
 [logo]: https://mlwin.de/images/mlwin_logo.png "MLwin"
+
+
+## Citation
+If you find this code useful, please consider citing the following paper.
+```
+@inproceedings{sadeghi2021benchembedd,
+  title={BenchEmbedd: A FAIR Benchmarking tool for knowledge graph Embeddings},
+  author={Sadeghi, Afshin and Shahini, Xhulia and Schmitz, Martin and Lehmann, Jens},
+  year={2021},
+  publisher={SEMANTiCS}
+}
+```
+
+
